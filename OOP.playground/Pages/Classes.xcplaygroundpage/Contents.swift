@@ -15,7 +15,9 @@
 
 //: ## Classes
 //: Uma classe é um modelo onde podemos representar um objeto do mundo real e suas características, por exemplo, podemos criar um classe Animal para representar os animais e adicionar características através de atributos e métodos. Abaixo segue um exemplo de como podemos criar uma classe em swift.
+//:
 //: O passo (1) mostra como definimos uma classe em swift. Utilizando a palavra-chave `class` seguido pelo nome da classe.
+//:
 //: Instanciar um objeto é o ato de criar uma variável do tipo da nossa classe. Em (2) criamos uma variável chamada de animal e instanciamos a mesma com um objeto do tipo Animal.
 exemplo("Definição da classe animal") {
     
@@ -41,7 +43,9 @@ exemplo("Adicionando atributos à classe Animal") {
 
 //: ## Construtores (Método `init`)
 //: O construtor é o método especial responsável por criar o nosso objeto. No swift esse método tem a sua assinatura descrita pela palavra-chave `init`, já no Java o construtor possui o mesmo nome da classe.
+//:
 //: Em swift, o construtor precisa iniciar (definir valores) todos os atributos da classe. No exemplo a seguir criamos um construtor para iniciar os atributos `nome` e `peso` da nossa classe Animal (1).
+//:
 //: Em seguida (2), instanciamos uma variável utilizando o nosso construtor, que recebe um `nome` e um `peso` por parâmetro.
 exemplo("Definição da classe animal") {
     
@@ -63,8 +67,11 @@ exemplo("Definição da classe animal") {
 }
 //: ## `inits` falhaveis
 //: Em alguns casos, o método `init` pode falhar, por exemplo quando os parametros são inválidos, não retornando um objeto para a nossa variável e sim um valor nulo.
+//:
 //: Por isso Swift define `init?`, similar a declaração de um opcional pois agora ele pode retornar um objeto nulo.
+//:
 //: (1) Vamos redefinir o `init` da classe Animal para não aceitar pesos negativos, consequentemente ele deve ser falhavel para caso a condição não seja satisfeita ele retorne um objeto nulo.
+//:
 //: Em (2) e (3) vamos instanciar novos objetos e analisar se o construtor criou ou não o nosso objeto, ou seja se ele possui algum valor (2) ou se é simplesmente nulo (3).
 
 exemplo("Definindo um init opcional") {
@@ -102,13 +109,17 @@ exemplo("Definindo um init opcional") {
 
 //: ## Métodos
 //: Métodos são operações que os objetos podem realizar, normalmente comparados com comportamentos que são desejados pelo objeto. Por exemplo um pato tem o comportamento de gransar (emitir som), voar, andar e etc. Esses comportamentos podem ser expressados através de métodos dentro do corpo da nossa classe.
+//:
 //: Um métdo deve possuir um nome, um tipo de retorno e parâmetros de entrada esse conjunto é chamado de assinatura do método. O objetivo do método é receber um certo parâmetro, realizar algum processamento e retornar uma resposta. Existem métodos que não necessitam de parâmetros e/ou que não retornam nada apenas realizam um processamento.
+//:
 //: Em swift a sintaxe para se criar um método é:
-//: 1- Palavra-chave `func`;
-//: 2- Nome do método;
-//: 3- Lista de parametros entre parênteses;
-//: 4- Tipo de retorno no formato `-> Tipo` (se não tiver retorno é opcional).
+//: - Palavra-chave `func`;
+//: - Nome do método;
+//: - Lista de parametros entre parênteses;
+//: - Tipo de retorno no formato `-> Tipo` (se não tiver retorno é opcional).
+//:
 //: Em (1) temos a nome do método como `grasnar`, os `()` indicam que o método não recebe nenhuma parâmetro e `->` sinaliza o tipo de retorno que no caso é `String`
+//:
 //: Para executar esse método precisamos primeiramente criar e instanciar uma variável (2) e posteriormente acessar o método através do `.` (ponto) (3)
 exemplo("Definindo um método em uma classe") {
     
@@ -131,6 +142,7 @@ exemplo("Definindo um método em uma classe") {
 }
 
 //: (4) Vamos criar o método `voar` que recebe uma `distancia` por parâmetro do tipo `Int` e retonar uma `String` descrevendo a distância percorrida durante o vôo.
+//:
 //: Para chamar o método utilizamos o mesmo processo realizado no exemplo anterior: criamos e instânciamos uma variável para em seguida chamar o método `voar` (5) e (6).
 exemplo("Definindo um método com parâmetros") {
     class Pato {
@@ -151,6 +163,7 @@ exemplo("Definindo um método com parâmetros") {
     print(pato.voar(distancia: 10))
 }
 //: Podemos ter um parâmetro com valor padrão. Isso significa que caso não seja passado nada naquele parâmetro o método irá atribuir à variável o valor padrão definido.
+//:
 //: No passo (7) reescrevemos o nosso método `voar`que agora recebe dois parâmetros: `distancia` e `unidade` sendo que este segundo possui um valor padrão, caso não seja passado nenhum valor o padrão será utilizado como pode ser visto em (8). Em (9) esse valor padrão é sobrescrito com `centimetros`.
 exemplo("Definindo um método com um parâmetros com valor padrão") {
     
@@ -202,7 +215,9 @@ exemplo("Definindo um método com parâmetros com nomes internos") {
 
 //: ## Métodos e atributos estáticos
 //: Métodos e/ou atributos podem ser antecedidos pela palavra-chave `static` (1) e (2) a qual indica que aquele método e/ou atributo é estático, ou seja, ele faz parte da classe e não do objeto e será compartilhado por todas as instâncias daquela classe. Já que ele pertence à classe e não ao objeto não é necessário uma instância da classe para acessa-lo.
+//:
 //: No exemplo abaixo temos um atributo `static` que conta o número de patos no mundo e ao criarmos um novo pato o método construtor chama o método `aumentarNumeroDePatosNoMundo()` incrementando a variável.
+//:
 //: Em (3) nós temos `0` patos no mundo, (4) após a criação do nosso objeto `pato` esse valor é incrementado e em (5) o valor da variável estática é `2`.
 
 exemplo("Definindo um método e atributo estático") {
@@ -238,9 +253,11 @@ exemplo("Definindo um método e atributo estático") {
 
 //: ## Sobrecarga
 //: A sobrecargar de métodos é a habilidade de permitir a existência de métodos com nomes iguais mas assinaturas diferentes, ou seja o método deve possuir o tipo de retorno ou parâmetros diferentes.
-//: (1) criamos o método `voar`, que recebe um `Int` por parâmetro e retona uma `String`;
-//: (2) criamos o método `voar`, que recebe um `Int` por parâmetro e retona um `Int`;
-//: (3) criamos o método `voar`, que recebe dois parâmetros: um `Int` e um `String` e retonar uma `String`.
+//:
+//: - (1) criamos o método `voar`, que recebe um `Int` por parâmetro e retona uma `String`;
+//: - (2) criamos o método `voar`, que recebe um `Int` por parâmetro e retona um `Int`;
+//: - (3) criamos o método `voar`, que recebe dois parâmetros: um `Int` e um `String` e retonar uma `String`.
+//:
 //: Em todos os exemplos o nome do método é o mesmo (`voar`) mudando apenas os parâmetros ou o tipo de retorno.
 
 exemplo("Definindo um método com um parâmetros com valor padrão") {
