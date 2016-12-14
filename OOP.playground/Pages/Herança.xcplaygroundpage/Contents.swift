@@ -1,7 +1,4 @@
-//: [Previous](@previous)
-
-import Foundation
-
+//: [Anterior](@previous)
 //: ## Herança
 //: Uma classe pode especializar uma outra classe. Chamamos essa tecninca de herança.
 //: Uma herança gera uma relação de `é um` entre duas classes
@@ -124,6 +121,3 @@ exemplo("Herança compartilhando métodos e atributos entre pato e animal") {
         print(animal.fazerSom())
     }
 }
-
-
-//: [Next](@next)

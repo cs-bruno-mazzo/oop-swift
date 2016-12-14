@@ -1,18 +1,7 @@
+//: [Anterior](@previous)
 //: # Orientação a Objetos em Swift
-
 //: ## O que é?
 //: Orientação a objetos é um paradigma de programação onde você tenta solucionar problemas modelando objetos. Esses objetos possuem atributos e métodos característicos, por exemplo uma janela em um navegador pode ser um objeto `janela`, possuir o atributo `corDeFundo` e o método `trocarCorDeFundo()` que definem suas características e comportamentos durante o seu ciclo de vida.
-
-// O que é Programação orientada a Objeto (POO ou OOP em inglês)?
-// - Mundo antes da POO
-// - Justificativa
-// - Benefícios
-// - Recursos
-// - Exemplo básicos
-
-// Objetos
-
-
 //: ## Classes
 //: Uma classe é um modelo onde podemos representar um objeto do mundo real e suas características, por exemplo, podemos criar um classe Animal para representar os animais e adicionar características através de atributos e métodos. Abaixo segue um exemplo de como podemos criar uma classe em swift.
 //:
@@ -294,18 +283,12 @@ exemplo("Definindo um método com um parâmetros com valor padrão") {
     print(pato.voar(distancia: 100, unidade: "centimetros"))
 }
 
-//
 // Modificadores de acesso
-
 // Encapisulamento
-
-
 // Protocolos (Interfaces)
 // @OBJC
-
-
 // Composição + Delegação
 // Protocolos
 // Structs
 
-//: [Next](@next)
+//: [Próximo](@next)
