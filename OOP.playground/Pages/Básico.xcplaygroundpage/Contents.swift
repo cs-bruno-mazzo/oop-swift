@@ -10,24 +10,30 @@
 //: 
 //: Em 2015 a linguagem foi transformada em open-source. Hoje estamos na versão 3.0 e muitas coisas já mudaram. Hoje a linguagem possui conceitos de orientação a objeto, programação funcional e orientada a protocolos.
 //: Por causa disso, alguns conceitos de OO diferem um pouco de outras linguagens.
-
+//:
 //: # Sintaxe
 //: A sintaxe de swift lembra muito outras linguagens que derivaram de C. Ela deixa de lado a verbosidade de Objective-C e volta a uma notação semelhante a C, Java, C#...
-
+//:
 //: ## Declaração de variaveis
-
-// Declarar uma variavel em Swift consiste em:
-// 1- keyword `var`
-// 2- nome da variável
-// 3- `:` e o tipo
-// 4- `=` seguido pelo valor inicial
-
+//:
+//: Declarar uma variável em Swift consiste em:
+//: - keyword `var`
+//: - nome da variável
+//: - `:` e o tipo
+//: - `=` seguido pelo valor inicial
+//: Logo para definirmos uma variável inteira temos: `var variavel: Int`
+//:
+//: (1) Declaração completa de uma variável
+//:
+//: (2) É obrigatório definir o valor inicial antes de usar a variável, mas não é obrigatório definir o valor na mesma linha.
 exemplo("Declaração de variável") {
-    //Declaração completa de uma variável
-    //`var` + nome + `:` + Tipo + `=` + valor
+    
+    // Declaração completa de uma variável
+    // `var` + nome + `:` + Tipo + `=` + valor
+    // (1)
     var peso: Double = 75.5
     
-    // É obrigatório definir o valor inicial antes de usar a variável, mas não é obrigatório definir o valor na mesma linha.
+    // (2) É obrigatório definir o valor inicial antes de usar a variável, mas não é obrigatório definir o valor na mesma linha.
     var altura: Double
     // Tentar usar a altura para alguma operação geraria erro
     //var imc = peso / (altura * altura) // Gera erro de compilação
@@ -41,17 +47,18 @@ exemplo("Declaração de variável") {
     print(imc)
 }
 
-
-
 //: ### Inferencia
 //: Se o tipo da variável pode ser descoberto pelo compilador, não precisamos declarar ele explicitamente.
 //: Isso acontece quando iniciamos na mesma linha a variável ou quando vamos passar ela para algum método que já tem o tipo declarado
+//: (1) O compilador automaticamente define a variável para ser do tipo Inteiro
+//: 
+//: (2) O compilador não permite que mudemos o tipo dela
 
 exemplo("Inferência") { 
-    // O compilador automaticamente define a variável para ser do tipo Inteiro
+    // (1) O compilador automaticamente define a variável para ser do tipo Inteiro
     var idade = 22
     
-    //O compilador não permite que mudemos o tipo dela
+    // (2) O compilador não permite que mudemos o tipo dela
     //idade = 22.5 // Geraria erro de compilação porque 22.5 não é do tipo inteiro
     print(idade)
 }
@@ -71,21 +78,23 @@ exemplo("Forçando o tipo") {
 
 
 //: ### `let` e `var`
-//: Swift possui dois `tipos` de declaração para valores. Um deles é o `var` e ele permite que você altere o valor da declaração depois da inicialização. O outro é o `let` e ele não pode ser alterado depois da inicialização
-
-// `let` representa um valor constante
-// Equivale a `final` em Java
-exemplo("Let") { 
+//: Swift possui dois `tipos` de declaração para valores. Um deles é o `var` e ele permite que você altere o valor da variável depois da inicialização. O outro é o `let` e ele não pode ser alterado depois da inicialização.
+//:
+//: Logo, `let` representa um valor constante que é equivale a `final` em Java (1).
+//:
+//: O `var` representa uma variável, ou seja, pode ter seu valor alterado (2).
+exemplo("Let") {
+    
+    // (1)
     let pi = 3.14
     // pi = 5 // Geraria erro de compilação
     
-    // `var` representa uma variável, ou seja, pode ter seu valor alterado
+    // (2)
     var raio = 5
     raio = 10
     
     print(raio)
 }
-
 
 // `let` precisa ser inicializado antes de ser usado, mas a inicialização não precisa ser feita na mesma linha
 exemplo("Let inicializado depois da declaração") {
@@ -101,22 +110,23 @@ exemplo("Let inicializado depois da declaração") {
     print(diametroGrande)
 }
 
-
 //: ## Controle de Fluxo
 //: Swift possui algumas alteranativas para realizar o controle de fluxo da aplicação.
 
 //: ### if
 //: Controle de fluxo pode ser feito com `if`s para verificar uma condição.
-
+//:
+//: O `if` não precisa de parênteses (1).
+//:
+//: O `else` é opcional e pode ser concatenado com mais um `if`, podendo gerar uma cadeia de `if, else if, else if , else` (2).
 
 exemplo("If") {
     let idade = 20
     
-    // O `if` não precisa de parênteses
-    // O `else` é opcional e pode ser concatenado com mais um `if`, podendo gerar uma cadeia de `if, else if, else if , else`
+    // (1)
     if idade < 16 {
         print("Não pode votar nem pode dirigir")
-    } else if idade < 18 {
+    } else if idade < 18 { // (2)
         print("Pode votar, mas não pode dirigir")
     } else {
         print("Pode votar e pode dirigir")
@@ -128,7 +138,7 @@ exemplo("If") {
 //: `for` permite que um mesmo bloco de código seja executado várias vezes.
 //: O `for` tradicional de C não é válido.
 //: Pode ser usado para percorrer um intervalo definido ou uma coleção de valores
-
+//:
 //: ### Intervalos
 //: São poucos usados
 
@@ -144,7 +154,6 @@ exemplo("For em intervalos") {
         print(index) // 0, 1, 2, 3, 4
     }
 }
-
 
 //: ### `for` em coleções
 //: `for` podem ser usados para percorrer Arrays e outros tipos de coleções
@@ -162,24 +171,25 @@ exemplo("For em coleções") {
     }
 }
 
-
-
 //: ## `switch` (Básico)
 //: Um `switch` é uma alterantiva a uma cadeia de `if else if`
 //: Em Swift, ele obrigatoriamente precisa ter todas as opções de valores (precisa ser exaustivo)
 //: O `break` é opcional e por padrão o `switch` não continua a execução se chegar a outro cláusula `case`
 //: Para poder executar a próxima cláusula `case` é necessário o comando `fallthrough`
-
+//:
+//: (1) break é opcional
+//:
+//: (2) Todo Switch deve ser exastivo. Caso seja impossível ter um `case` pra todos os casos, `default` deve ser implementado
 exemplo("Swicth") { 
     let dia = "Quarta"
     
     switch dia {
     case "Sábado", "Domingo":
         print("Final de semana")
-        //break é opcional
+        // (1) break é opcional
         
     default:
-        //Todo Switch deve ser exastivo. Caso seja impossível ter um `case` pra todos os casos, `default` deve ser implementado
+        // (2) Todo Switch deve ser exastivo. Caso seja impossível ter um `case` pra todos os casos, `default` deve ser implementado
         print("Dia de semana")
         
     }
@@ -187,7 +197,7 @@ exemplo("Swicth") {
 
 
 //: ## Opcionais
-// `opcionais` (ou `?`) representa um valor opcional, ou seja, que pode ser nulo (em swift `nil`, em outras linguagens `Null`). Em Swift, um valor só pode conter `nil` se o tipo for `<Tipo>?`, exemplo: String?, Int?
+//: `opcionais` (ou `?`) representa um valor opcional, ou seja, que pode ser nulo (em swift `nil`, em outras linguagens `Null`). Em Swift, um valor só pode conter `nil` se o tipo for `<Tipo>?`, exemplo: String?, Int?
 
 exemplo("Opcionais") {
     
@@ -214,8 +224,7 @@ exemplo("Force Unwrap") {
 
 
 //if apelido! == "Swift" { } // Gera um erro de execução: `fatal error: unexpectedly found nil while unwrapping an Optional value`
-
-
+//:
 //: ### Valores padrão
 //: Quando podemos dar um valor padrão, podemos usar o operador `??`
 exemplo("Valores padrão") {
