@@ -294,12 +294,6 @@ exemplo("Definindo um método com um parâmetros com valor padrão") {
     print(pato.voar(distancia: 100, unidade: "centimetros"))
 }
 
-//
-// Modificadores de acesso
-
-// Encapisulamento
-
-
 // Protocolos (Interfaces)
 // @OBJC
 
