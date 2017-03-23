@@ -1,7 +1,4 @@
-//: [Previous](@previous)
-
 //: # Swift
-
 //: ## Histórico
 //: Swift foi apresentada ao mundo em 2014. As principais caracteristicas que a Apple prometia para a linguagem era:
 //: - Ser uma linguagem multi paradigma
@@ -263,7 +260,4 @@ exemplo("guard") {
     
     print(valor) //`valor` pode ser usado mesmo depois do `guard`.
 }
-
-
-//: [Next](@next)
-
+//: [Próximo](@next)
